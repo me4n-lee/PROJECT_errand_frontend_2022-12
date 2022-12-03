@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/errand_me4n_202212/static/css/main.1a0fca3e.css",
+    "main.js": "/errand_me4n_202212/static/js/main.e7641a00.js",
+    "static/js/787.cda612ba.chunk.js": "/errand_me4n_202212/static/js/787.cda612ba.chunk.js",
+    "index.html": "/errand_me4n_202212/index.html",
+    "main.1a0fca3e.css.map": "/errand_me4n_202212/static/css/main.1a0fca3e.css.map",
+    "main.e7641a00.js.map": "/errand_me4n_202212/static/js/main.e7641a00.js.map",
+    "787.cda612ba.chunk.js.map": "/errand_me4n_202212/static/js/787.cda612ba.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1a0fca3e.css",
+    "static/js/main.e7641a00.js"
+  ]
+}
