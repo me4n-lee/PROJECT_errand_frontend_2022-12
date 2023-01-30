@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/errand_me4n_202212/static/css/main.1a0fca3e.css",
-    "main.js": "/errand_me4n_202212/static/js/main.e7641a00.js",
-    "static/js/787.cda612ba.chunk.js": "/errand_me4n_202212/static/js/787.cda612ba.chunk.js",
-    "index.html": "/errand_me4n_202212/index.html",
-    "main.1a0fca3e.css.map": "/errand_me4n_202212/static/css/main.1a0fca3e.css.map",
-    "main.e7641a00.js.map": "/errand_me4n_202212/static/js/main.e7641a00.js.map",
-    "787.cda612ba.chunk.js.map": "/errand_me4n_202212/static/js/787.cda612ba.chunk.js.map"
+    "main.css": "/PROJECT_errand_frontend_2022-12/static/css/main.c9e05172.css",
+    "main.js": "/PROJECT_errand_frontend_2022-12/static/js/main.8140adef.js",
+    "static/js/787.cda612ba.chunk.js": "/PROJECT_errand_frontend_2022-12/static/js/787.cda612ba.chunk.js",
+    "index.html": "/PROJECT_errand_frontend_2022-12/index.html",
+    "main.c9e05172.css.map": "/PROJECT_errand_frontend_2022-12/static/css/main.c9e05172.css.map",
+    "main.8140adef.js.map": "/PROJECT_errand_frontend_2022-12/static/js/main.8140adef.js.map",
+    "787.cda612ba.chunk.js.map": "/PROJECT_errand_frontend_2022-12/static/js/787.cda612ba.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.1a0fca3e.css",
-    "static/js/main.e7641a00.js"
+    "static/css/main.c9e05172.css",
+    "static/js/main.8140adef.js"
   ]
 }
