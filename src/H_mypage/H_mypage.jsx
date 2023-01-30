@@ -7,26 +7,33 @@ import { RiQuestionnaireLine } from "react-icons/ri";
 import { IoIosArrowForward } from "react-icons/io";
 import styles from "./H_mypage.module.css";
 import Header from "../components/Header/Header";
-import Rate from "../components/Rate/Rate";
 import useUser from "../components/hooks/use-user";
 import { BsStarFill } from "react-icons/bs";
+import Star from "../M_list/Star";
+import React, {useEffect, useState} from "react";
 
 export default function H_mypage() {
-  const user = useUser();
-  //const [rate, setRate]=useRate();
-  // useEffect(() => {
-  //   fetch("")
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       console.log("별점 데이터 받아옴");
-  //       setRate(data);
-  //     });
-  //   return () => {
-  //     console.log("별점 데이터 청소");
-  //   };
-  // }, []);
-  const rate = 4;
-  // if (error) return <p>{error}</p>; => 해당 함수 적용 시 error페이지 나옴
+  const [loading, error, user] = useUser();
+  const [rate, setRate] = useState(1);
+
+  useEffect(() => {
+    console.log(user);
+    let model = {
+      method: "GET",
+      headers: {
+        Authorization: localStorage.getItem("email"),
+        'Content-Type': 'application/json',
+      },
+    };
+    fetch("/api/member/stars", model)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data == 0) data = 1;
+        setRate(data);
+        console.log(data);
+        console.log("별점 데이터 받아옴");
+      });
+  }, []);
   return (
     <>
       <Header />
@@ -35,7 +42,7 @@ export default function H_mypage() {
         <ul>
           <li>
             <p>성별</p>
-            <p>{user.gender ? "여자" : "남자"}</p>
+            <p>{user.gender == 1 ? "남자" : "여자"}</p>
           </li>
           <li>
             <p>전화번호</p>

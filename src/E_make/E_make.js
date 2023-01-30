@@ -1,10 +1,12 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useRef} from 'react';
 import './E_make.css'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function E_make() {
     const [category, setCategory] = useState([]);
+    const form = useRef();
+    let data = new FormData();
     useEffect(() => {
         let model = {
             method: 'GET',
@@ -19,7 +21,6 @@ function E_make() {
 
     function handleSavePost(event) {
         event.preventDefault();
-        const data = new FormData(event.target);
         data.append("client_email", localStorage.getItem("email"));
         const value = Object.fromEntries(data.entries());
         let model = {
@@ -34,25 +35,28 @@ function E_make() {
           .then((res) => res.json())
           .then((res) => {
               window.alert("심부름이 등록되었습니다.");
-              window.location.replace("/Errandongoing/" + res)
+              window.location.replace("/Home")
           })
     };
 
+    function handleChange() {
+        data = new FormData(form.current);
+    }
 
     return (
         <div>
-            <div className='Errandmake'>
-                <form onSubmit={handleSavePost}>
-                    <div class="container">
-                        <h3 class="main">상품명</h3>
-                        <div class="col-3">
-                            <input class="effect-1" type="text" placeholder="  Placeholder Text" name="product" />
-                            <span class="focus-border"></span>
+            <div className="Errandmake_">
+                <form onSubmit={handleSavePost} onChange={handleChange} ref={form}>
+                    <div className="container_">
+                        <h3 className="main_">상품명</h3>
+                        <div className="col-4_">
+                            <input className="effect-1" type="text" placeholder="  상품명을 입력하세요." name="product" />
+                            <span className="focus-border"></span>
                         </div>
                     </div>
-                    <div class="container">
-                        <h3 class="main">카테고리</h3>
-                        <select class="selectbox" name="category">
+                    <div className="container_">
+                        <h3 className="main_">카테고리</h3>
+                        <select className="selectbox_" name="category">
                             {
                             category.map(
                                 t => {
@@ -64,39 +68,37 @@ function E_make() {
                             }
                         </select>
                     </div>
-                    <div class="container">
-                        <h3 class="main">상품 비용</h3>
-                        <div class="col-3">
-                            <input class="effect-1" type="text" placeholder="  Placeholder Text" name="cost" />
-                            <span class="focus-border"></span>
+                    <div className="container_">
+                        <h3 className="main_">상품 비용</h3>
+                        <div className="col-3_">
+                            <input className="effect-1" type="text" placeholder="  상품 비용을 입력하세요." name="cost" />
+                            <span className="focus-border"></span>
                         </div>
                     </div>
-                    <div class="container">
-                        <h3 class="main">심부름 비용</h3>
-                        <div class="col-3">
-                            <input class="effect-1" type="text" placeholder="  Placeholder Text" name="fee" />
-                            <span class="focus-border"></span>
+                    <div className="container_">
+                        <h3 className="main_">심부름 비용</h3>
+                        <div className="col-3_">
+                            <input className="effect-1" type="text" placeholder="  심부름 비용을 입력하세요." name="fee" />
+                            <span className="focus-border"></span>
                         </div>
                     </div>
-                    <div class="container">
-                        <h3 class="main">심부름 내용</h3>
+                    <div className="container_">
+                        <h3 className="main_">심부름 내용</h3>
                         <div >
-                            <textarea class="textarea" placeholder="심부름 내용을 입력해주세요" name="contents"></textarea>
+                            <textarea className="textarea_" placeholder="심부름 내용을 입력해주세요." name="contents"></textarea>
                         </div>
                     </div>
-                    <div className="container">
-                        <h3 className="main">거래 장소</h3>
+                    <div className="container_">
+                        <h3 className="main_">거래 장소</h3>
                         <div>
-                            <textarea className="textarea" placeholder="거래할 장소를 입력해주세요" name="destination"></textarea>
+                            <textarea className="textarea_" placeholder="거래할 장소를 입력해주세요." name="destination"></textarea>
                         </div>
                     </div>
                 </form>
+                <div className='button_row'>
+                    <input type="submit" className="button" value="등록" onClick={handleSavePost}></input>
+                </div>
             </div >
-            <div className='button_row'>
-                <Link to = "/home">
-                    <div className="button">등록</div>
-                </Link>
-            </div>
             <div className="footer">&copy;{new Date().getFullYear()} Errand App</div>
         </div>
     );
